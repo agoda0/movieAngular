@@ -1,0 +1,39 @@
+<div class="register py-3">
+    <form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">
+        <div class="my-2">
+            <label>Frist Name</label>
+            <input type="text" class="form-control my-3" formControlName="first_name">
+            <div class="text-danger" *ngIf="registerForm.controls['first_name'].invalid&&registerForm.controls['first_name'].touched">
+                <p *ngIf="registerForm.controls['first_name'].errors?.['required']">first name is required</p>
+                <p *ngIf="registerForm.controls['first_name'].errors?.['minlength']">first name min length is 3</p>
+                <p *ngIf="registerForm.controls['first_name'].errors?.['maxlength']">first name max length is 10</p>
+            </div>
+        </div>
+        <div class="my-2">
+            <label>last Name</label>
+            <input type="text" class="form-control my-3" formControlName="last_name">
+            <div class="text-danger" *ngIf="registerForm.controls['last_name'].invalid&&registerForm.controls['last_name'].touched">
+                <p *ngIf="registerForm.controls['last_name'].errors?.['required']">last name is required</p>
+                <p *ngIf="registerForm.controls['last_name'].errors?.['minlength']">last name min length is 3</p>
+                <p *ngIf="registerForm.controls['last_name'].errors?.['maxlength']">last name max length is 10</p>
+            </div>
+        </div>
+        <div class="my-2">
+            <label>Email</label>
+            <input type="email" class="form-control my-3" formControlName="email">
+            <div class="text-danger" *ngIf="registerForm.controls['email'].invalid&&registerForm.controls['email'].touched">
+                <p *ngIf="registerForm.controls['email'].errors?.['required']">E-mail is required</p>
+                <p *ngIf="registerForm.controls['email'].errors?.['email']">Not Valid E-mail</p>
+            </div>
+        </div>
+        <div class="my-2">
+            <label>Password</label>
+            <input type="password" class="form-control my-3" formControlName="password">
+            <div class="text-danger" *ngIf="registerForm.controls['password'].invalid&&registerForm.controls['password'].touched">
+                <p *ngIf="registerForm.controls['password'].errors?.['required']">Password is required</p>
+                <p *ngIf="registerForm.controls['password'].errors?.['pattern']" >password starts with char followed by 3 numbers</p>
+            </div>
+        </div>
+        <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>  

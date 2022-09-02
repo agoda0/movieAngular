@@ -1,0 +1,35 @@
+@import '../../styles.scss';
+
+nav{
+    background-color:$lightBgColor;
+    color: $fontColor;
+    .social{
+        display: flex;
+        align-items:center ;
+    }
+}
+.navbar .navbar-brand{
+    color: $fontColor;
+    font-size: 33px;
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.navbar-expand-lg .navbar-nav .nav-link{
+    color: $fontColor;
+}
+.navbar .navbar-toggler{
+    border: 1px solid #fff;
+    background-color: #fff;
+    .navbar-toggler-icon{
+        color: #fff;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-expand-lg .navbar-nav .nav-link{
+        margin-right: 15px;
+    }
+    nav .social{
+        display: none;
+    }
+}

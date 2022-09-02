@@ -1,0 +1,44 @@
+<ngx-spinner type = "timer"> Loading... </ngx-spinner>
+<div class="home">
+    <div class="movies  mb-5">
+        <h1>Trending Movies</h1>
+        <swiper [config]="config" [loop]="true" class="mySwiper">
+            <ng-template  *ngFor="let movie of triendingMovies" swiperSlide>
+                <div class="box-content" title="Click For More Details" routerLink="/details/movie/{{movie.id}}">
+                    <div>
+                        <img class="img-fluid" src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" alt="">
+                        <h5>{{movie.title}}</h5>
+                    </div>
+                </div>
+            </ng-template>
+        </swiper>
+    </div>
+
+    <div class="tvshows  mb-5">
+        <h1>Triending Tv Showes</h1>
+        <swiper [config]="config2" class="mySwiper">
+            <ng-template *ngFor="let tv of triendingTvshows" swiperSlide>
+                <div class="box-content" title="Click For More Details" routerLink="/details/tv/{{tv.id}}" >
+                    <div>
+                        <img class="img-fluid" src="https://image.tmdb.org/t/p/original{{tv.poster_path}}" alt="">
+                        <h5>{{tv.name}}</h5>
+                    </div>
+                </div>
+            </ng-template>
+        </swiper>
+    </div>
+
+    <div class="people">
+        <h1>Triending People</h1>
+        <swiper [config]="config3" class="mySwiper">
+            <ng-template *ngFor="let people of triendingPeoples" swiperSlide>
+                <div class="box-content" title="Click For More Details" routerLink="/details/person/{{people.id}}" >
+                    <div>
+                        <img class="img-fluid" src="https://image.tmdb.org/t/p/original{{people.profile_path}}" alt="">
+                        <h5>{{people.name}}</h5>
+                    </div>
+                </div>
+            </ng-template>
+        </swiper>
+    </div>
+</div>

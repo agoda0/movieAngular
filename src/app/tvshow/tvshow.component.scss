@@ -1,0 +1,40 @@
+@import "../../styles.scss";
+.tvshows{
+    margin-top: 50px;
+    .row{
+        .my-pagination{
+            text-align: center;
+            &::ng-deep .ngx-pagination .current {
+                background: #17a2b8;
+            }
+            &::ng-deep .ng-star-inserted {
+                color: #fff;
+            }
+            &::ng-deep .ng-star-inserted a{
+                text-decoration: none;
+            }
+            &::ng-deep .ng-star-inserted a:hover{
+                color: #17a2b8;
+                transition: 0.5s;
+            }
+        }
+        .box{
+            background: transparent;
+            margin-bottom: 50px;
+            transition: 0.5s;
+            cursor: pointer;
+            &:hover{
+                box-shadow: 0 0 15px $bgTransparent;
+                transition: 0.5s;
+                h5{
+                    color: #17a2b8;
+                }
+            }
+            h5{
+                transition: 0.5s;
+            }
+        }
+        
+    }
+    
+}

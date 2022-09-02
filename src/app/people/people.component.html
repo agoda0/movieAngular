@@ -1,0 +1,14 @@
+<ngx-spinner type = "timer"> Loading... </ngx-spinner>
+<div class="people">
+    <div class="row">
+        <div *ngFor="let people of triendingPeople | paginate: { itemsPerPage: 1, currentPage: pagenum, totalItems:totalLength}" class="col-lg-3 col-md-4 ">
+            <div class="card box" routerLink="/details/person/{{people.id}}" title="Click For More Details">
+                <img class="card-img-top" src="https://image.tmdb.org/t/p/original{{people.profile_path}}" alt="">
+                <div class="card-body">
+                    <h5 class="card-title" >{{people.name}}</h5>
+                </div>
+            </div>
+        </div>
+        <pagination-controls class="my-pagination" (pageChange)="pagenum = $event" (click) ="getTriendingPeople(pagenum)"></pagination-controls>
+    </div>
+</div>

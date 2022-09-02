@@ -1,0 +1,20 @@
+<div class="about py-5">
+    <div class="products">
+        <h3>All Products</h3>
+        <div class="row">
+            <div *ngFor="let product of totalProducts" class="col-lg-2 col-md-3 col-sm-6">
+                <img src="assets/images/about/{{product}}.png">
+            </div>
+        </div>
+    </div>
+    <div class="pages">
+        <h3>Follow Us In Our Pages</h3>
+        <div class="links list-unstyled">
+            <span class="home"><a routerLink="" target="_self"><i class="fa-solid fa-house"></i></a></span>
+            <span class="insta"><a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></span>
+            <span class="youtube"><a href="https://www.youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a></span>
+            <span class="facebook"><a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></span>
+            <span class="mail"><a href="https://outlook.office.com/mail/" target="_blank"><i class="fa-solid fa-envelope"></i></a></span>
+        </div>
+    </div>
+</div>

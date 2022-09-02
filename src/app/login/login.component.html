@@ -1,0 +1,22 @@
+<div class=" login py-3">
+    <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
+
+        <div class="my-2">
+            <label>Email</label>
+            <input type="email" class="form-control my-3" formControlName="email">
+            <div class="text-danger" *ngIf="loginForm.controls['email'].invalid&&loginForm.controls['email'].touched">
+                <p *ngIf="loginForm.controls['email'].errors?.['required']">E-mail is required</p>
+                <p *ngIf="loginForm.controls['email'].errors?.['email']">Not Valid E-mail</p>
+            </div>
+        </div>
+        <div class="my-2">
+            <label>Password</label>
+            <input type="password" class="form-control my-3" formControlName="password">
+            <div class="text-danger" *ngIf="loginForm.controls['password'].invalid&&loginForm.controls['password'].touched">
+                <p *ngIf="loginForm.controls['password'].errors?.['required']">Password is required</p>
+                <p *ngIf="loginForm.controls['password'].errors?.['pattern']">password starts with char followed by 3 numbers</p>
+            </div>
+        </div>
+        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>  

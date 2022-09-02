@@ -1,0 +1,62 @@
+<ngx-spinner type = "timer"> Loading... </ngx-spinner>
+<div class="details">
+    <div class="mov" *ngIf="kindShow() ; else person" >
+        <div class="row my-5 ">
+            <div class="col-md-5">
+                <img class="img-fluid img-thumbnail" src="https://image.tmdb.org/t/p/original{{poster_path}}">
+            </div>
+            <div class="col-md-7">
+                <p class="fs-1">{{respo.original_title}}{{respo.original_name}}</p>
+                <p class="fs-4 text-muted">{{respo.tagline}}</p>
+                <span *ngFor="let genr of genres" class="badge bg-info m-3">{{genr.name}}</span>
+                <p class="fs-5">Vote : {{vote_average}}</p>
+                <p class="fs-5">Vote count : {{vote_count}}</p>
+                <p class="fs-5">Popularity : {{popularity}}</p>
+                <p class="fs-5">Release Date : {{respo.release_date}}{{respo.first_air_date}}</p>
+                <p class="fs-5 text-muted">{{respo.overview}}</p>
+            </div>
+        </div>
+    </div>
+
+    <ng-template class="per"  #person>
+        <div class="row my-5">
+            <div class="col-md-5">
+                <div>
+                    <img class="img-fluid img-thumbnail" src="https://image.tmdb.org/t/p/original{{respo.profile_path}}">
+                </div>
+                <div class="info mt-4">
+                    <h3>Personal Info</h3>
+                    <h5>Known For</h5>
+                    <p>{{respo.known_for_department}}</p>
+                    <h5>Gender</h5>
+                    <p>{{gender}}</p>
+                    <h5>Birthday</h5>
+                    <p>{{respo.birthday}} ({{calcAge()}} years old)</p>
+                    <h5>Place Of Brith</h5>
+                    <p>{{respo.place_of_birth}}</p>
+                    <h5>Also Known As</h5>
+                    <ul class="list-unstyled">
+                        <li *ngFor="let name of respo.also_known_as">{{name}}</li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div class="col-md-7">
+                <h2>{{respo.name}}</h2>
+                <p>{{respo.biography}}</p>
+
+
+                <h5>Movies</h5>
+                <ul class="list-unstyled">
+                    <li  *ngFor="let movie of movies" > &nbsp; <span class="date">{{convertDate(movie.release_date)}}</span> <span class="split"></span> {{movie.title}}</li>
+                </ul>
+
+                <h5>TvShows</h5>
+                <ul class="list-unstyled list-position-inset">
+                    <li  *ngFor="let tvshow of tvshows" > &nbsp; <span class="date">{{convertDate(tvshow.first_air_date)}}</span> <span class="split"></span> {{tvshow.name}}</li>
+                </ul>
+            </div>
+        </div>
+    </ng-template>
+</div>

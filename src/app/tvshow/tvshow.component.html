@@ -1,0 +1,15 @@
+<ngx-spinner type = "timer"> Loading... </ngx-spinner>
+<div class="tvshows">
+    <div class="row">
+        <div *ngFor="let tvShow of tvShows | paginate: { itemsPerPage: 1, currentPage: pagenum, totalItems:totalLength}" class="col-lg-3 col-md-4 ">
+            <div class="card box" routerLink="/details/tv/{{tvShow.id}}" title="Click For More Details">
+                <img class="card-img-top" src="https://image.tmdb.org/t/p/original{{tvShow.poster_path}}" alt="">
+                <div class="card-body">
+                    <h5 class="card-title" >{{tvShow.name}}</h5>
+                    <p class="card-text">{{tvShow.first_air_date}}</p>
+                </div>
+            </div>
+        </div>
+        <pagination-controls class="my-pagination" (pageChange)="pagenum = $event" (click) ="getTriendingTvShows(pagenum)"></pagination-controls>
+    </div>
+</div>
